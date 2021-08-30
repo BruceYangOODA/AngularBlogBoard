@@ -1,0 +1,23 @@
+<div *ngIf="user" class="main-div">    
+    <mat-card class="card">
+        <mat-card-header>
+            <div mat-card-avatar>
+                <img *ngIf="user.profileImage ; else placeholderImage" class="header-image"
+                src="assets/uploads/usericon/{{user.profileImage}}" >
+                <ng-template #placeholderImage>
+                    <img class="header-image" 
+                    src="assets/placeholders/placeholder-blog-entry.png"> 
+                </ng-template>
+                
+            </div>
+            <mat-card-title>{{user.name}}</mat-card-title>
+            <mat-card-subtitle>{{user.email}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>暱稱: {{user.username}}</p>
+            <p>權限: {{user.role}}</p>
+            <h2>{{user.username}} 所有文章 </h2>
+            <app-user-blog-entries userid="{{user.id}}"></app-user-blog-entries>
+        </mat-card-content>
+    </mat-card>
+</div>

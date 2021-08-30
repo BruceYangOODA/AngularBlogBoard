@@ -1,0 +1,17 @@
+<h1 style="text-align: center;">
+    登入頁面
+</h1>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="container">
+        <mat-form-field>
+            <input matInput placeholder="信箱" formControlName="email">
+            <mat-hint *ngIf="loginForm.controls.email.errors">請填信箱帳號</mat-hint>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="password" placeholder="密碼" formControlName="password">
+            <mat-hint *ngIf="loginForm.controls.password.errors">請填寫密碼</mat-hint>
+        </mat-form-field>              
+        <button mat-flat-button color="primary" [disabled]="loginToken!='0' || !loginForm.valid" type="submit">登入</button>
+        
+    </div>
+</form>

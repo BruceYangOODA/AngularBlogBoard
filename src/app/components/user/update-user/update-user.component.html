@@ -1,0 +1,44 @@
+<form [formGroup]="form">
+    <div>
+        <mat-card class="container">
+            <div style="width: 80%;">
+                <mat-card>
+                    <mat-card-content>
+                        <img *ngIf="imgURL==undefined && form.get('profileImage')?.value" 
+                            src="assets/uploads/usericon/{{form.get('profileImage')?.value}}">
+                        <img *ngIf="imgURL" [src]="imgURL">                        
+                        <img *ngIf="imgURL==undefined && form.get('profileImage')?.value==null" 
+                             src="../../../assets/placeholders/placeholder-blog-entry.png">                       
+                    <ul>
+                        <li *ngIf="file.inProgress">
+                            <mat-progress-bar [value]="file.progress"></mat-progress-bar>
+                        </li>
+                    </ul>                    
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-button color="warn" (click)="loadIMG()">
+                            <mat-icon>cloud_upload</mat-icon>
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+                <input type="file" #fileUpload id="fileUpload" name="fileUpload" accept="image/*" style="display:none;">
+            </div>
+
+            <div class="container" style="width: 80%;">
+                <mat-form-field>
+                    <input matInput placeholder="ID" formControlName="id">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="姓名" formControlName="name">
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput placeholder="暱稱" formControlName="username">
+                </mat-form-field>
+            </div>
+            <button mat-flat-button color="primary" [disabled]="!form.valid" type="submit"
+                (click)="updateUser()">更新資料</button>
+        </mat-card>
+    </div>
+</form>

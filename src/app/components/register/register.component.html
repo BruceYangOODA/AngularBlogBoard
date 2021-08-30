@@ -1,0 +1,37 @@
+<h1 style="text-align: center;">
+    註冊頁面
+</h1>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="container">
+        <mat-form-field>
+            <input matInput placeholder="姓名" formControlName="name">
+            <mat-hint *ngIf="registerForm.get('name')?.errors">請填姓名</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="暱稱" formControlName="username">
+            <mat-hint *ngIf="registerForm.get('username')?.errors">輸入暱稱</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="信箱" formControlName="email">
+            <mat-hint *ngIf="registerForm.get('email')?.errors">填入信箱</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="password" placeholder="密碼" formControlName="password">
+            <mat-hint *ngIf="registerForm.get('password')?.errors">請填密碼</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="password" placeholder="確認密碼" formControlName="confirmPassword">
+            <mat-hint *ngIf="registerForm.hasError('passwordsNotMatching')">確認密碼不符</mat-hint>
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" [disabled]="!registerForm.valid" type="submit">註冊</button>
+        
+<h3 *ngIf="registerForm.invalid">表單填寫錯誤</h3>
+<small *ngIf="registerForm.get('password')?.hasError('passwordInvalid')">密碼需至少一個數字</small> <br>
+<small *ngIf="registerForm.hasError('passwordsNotMatching')">確認密碼不符</small>
+    </div>
+</form>

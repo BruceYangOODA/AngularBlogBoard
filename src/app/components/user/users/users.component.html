@@ -1,0 +1,52 @@
+<h1 style="text-align: center;">用戶一覽</h1>
+
+<mat-form-field>
+    <mat-label>姓名檢索</mat-label>
+    <input matInput type="text" [(ngModel)]="filterValue"
+    placeholder="輸入姓名">
+    
+</mat-form-field>
+<button mat-raised-button
+    (click)="findByName(filterValue)">檢索</button>
+
+<div *ngIf="dataSource">
+    <mat-table [dataSource]="dataSource.items">
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"
+            (click)="navigateToProfile(row.id)"></mat-row>
+
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.id}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>姓名</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="username">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>暱稱</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.username}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>信箱</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.email}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="role">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>權限</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row?.role}}</mat-cell>
+        </ng-container>
+    </mat-table>
+    
+    <mat-paginator 
+        [length]="dataSource.meta.totalItems" 
+        [pageSize]="dataSource.meta.itemsPerPage" 
+        [pageSizeOptions]="[1,5,10]"
+        (page)="pageEvent = $event; onPaginateChange($event)"
+        showFirstLastButtons>
+    </mat-paginator>
+</div>

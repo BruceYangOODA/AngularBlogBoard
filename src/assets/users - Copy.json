@@ -1,0 +1,68 @@
+[
+    {
+        "name": "天",
+        "username": "測試1",
+        "email": "test1@abc.com",
+        "password": "123",
+        "id": "1",
+        "role": "Admin",
+        "profileImage": "01.jpg"
+    },
+    {
+        "name": "地",
+        "username": "測試2",
+        "email": "test2@abc.com",
+        "password": "123",
+        "id": "2",
+        "role": "User",
+        "profileImage": "02.jpg"
+    },{
+        "name": "水",
+        "username": "測試3",
+        "email": "test3@abc.com",
+        "password": "123",
+        "id": "3",
+        "role": "User",
+        "profileImage": "03.jpg"
+    },
+    {
+        "name": "火",
+        "username": "測試4",
+        "email": "test4@abc.com",
+        "password": "123",
+        "id": "4",
+        "role": "User"
+    },{
+        "name": "雷",
+        "username": "測試5",
+        "email": "test5@abc.com",
+        "password": "123",
+        "id": "5",
+        "role": "User",
+        "profileImage": "05.jpg"
+    },{
+        "name": "風",
+        "username": "測試6",
+        "email": "test6@abc.com",
+        "password": "123",
+        "id": "6",
+        "role": "User",
+        "profileImage": "06.jpg"
+    },{
+        "name": "山",
+        "username": "測試7",
+        "email": "test7@abc.com",
+        "password": "123",
+        "id": "7",
+        "role": "User",
+        "profileImage": "07.jpg"
+    },{
+        "name": "澤",
+        "username": "測試8",
+        "email": "tes8t@abc.com",
+        "password": "123",
+        "id": "8",
+        "role": "Admin"
+    }
+
+]
